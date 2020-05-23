@@ -1,0 +1,32 @@
+cd("C:\\Users\\HM PAULUS\\Downloads\\bank-marketing-campaign")
+
+Using CSV,DataFrames
+
+using Statistics
+
+using Plots
+
+
+fileName = "bank-marketing-campaign.csv"
+
+
+df= CSV.read("bank-marketing-campaign.csv")
+
+
+names(df) 
+
+upperCase(string(names(df))) 
+
+names!(df,{copy and paste the name upperCase names here}) 
+
+
+df.isnull().any() 
+
+
+df.isnull().any().any() 
+
+
+df.isnull().sum()
+
+
+df.drop_duplicates(subset=["column1","colum2],keep=False) 
