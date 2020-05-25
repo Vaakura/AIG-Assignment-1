@@ -254,8 +254,10 @@ return 5
     
     cat_cols.poutcome = map(convert_string,cat_cols.poutcome)
 
+#classification Model for subscribers yess= 1 No =0
 #encode categorical data in numeric
 #y
+
 convert_string(str)= try parse(Float64,str) catch; 
     if str == "no"
  return 0
