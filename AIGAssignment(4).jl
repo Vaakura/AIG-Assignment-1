@@ -1,41 +1,22 @@
-using Knet, DataFrames, Gadfly, Cairo, CSV, FreqTables, CategoricalArrays, Statistics, Plots
+using DataFrames,CSV, FreqTables, CategoricalArrays, Statistics, Plots
 
-# Loading or reading the file
-df = readtable("C:\\Users\\Vaakura\\Desktop\\AIG2020\\bank-additional-full.csv", separator = ';');
-# or with CSV.read from CSV (using CSV; CSV.read("file"))
-println("# Data Description")
-println(describe(df))
-
-
-
-# Data cleaning
-
-#Check inconsistant column names
-
-head(df,4)
+# loading the data set
+df = CSV.read("C:\\Users\\HM PAULUS\\Downloads\\bank-marketing-campaign\\bank-additional.csv")
 
 #Print out coulum names
-
 names(df)
 
 #Chage all strings to lowercase
 
 lowercase(string(names(df)))
 
-names!(df,[:age, :job, :marital, :education, :default, :housing, :loan, :contact, :month, :day_of_week, :duration, :campaign, :pdays, :previous, :poutcome, :emp_var_rate, :cons_price_idx, :cons_conf_idx, :euribor3m, :nr_employed, :y])
+#strings to be converted to NA values during reading:
 
-#Specifying a group of strings to be converted to NA values during reading:
-
-df1 = readtable("C:\\Users\\Vaakura\\Desktop\\AIG2020\\bank-additional-full.csv",nastrings=["NA", "na", "n/a", "missing"])
-
-
+df1 = readtable("C:\\Users\\HM PAULUS\\Downloads\\bank-marketing-campaign\\bank-additional.csv",nastrings=["NA", "na", "n/a", "missing"])
 
 #select all columns for testing
 
 df[:,[:age,:job,:marital, :education, :default, :housing, :loan,:contact,:day_of_week, :poutcome,:y]]
-
-
-
 
 #store final data set with selcted columns "data"
 
